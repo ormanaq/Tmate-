@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+
+  /* GitHub Dark Theme Colors */
+  --github-bg: 13 7% 9%; /* #0D1117 */
+  --github-bg-secondary: 14 8% 13%; /* #161B22 */
+  --github-bg-tertiary: 16 9% 17%; /* #21262D */
+  --github-border: 18 8% 19%; /* #30363D */
+  --github-text: 212 11% 94%; /* #F0F6FC */
+  --github-text-secondary: 214 12% 52%; /* #7D8590 */
+  --github-success: 137 71% 35%; /* #238636 */
+  --github-error: 358 75% 52%; /* #DA3633 */
+  --github-warning: 32 100% 49%; /* #FB8500 */
+  --github-info: 213 93% 44%; /* #0969DA */
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+/* GitHub Dark Theme Utility Classes */
+.bg-github-bg { background-color: hsl(var(--github-bg)); }
+.bg-github-bg-secondary { background-color: hsl(var(--github-bg-secondary)); }
+.bg-github-bg-tertiary { background-color: hsl(var(--github-bg-tertiary)); }
+.border-github-border { border-color: hsl(var(--github-border)); }
+.text-github-text { color: hsl(var(--github-text)); }
+.text-github-text-secondary { color: hsl(var(--github-text-secondary)); }
+.text-github-success { color: hsl(var(--github-success)); }
+.text-github-error { color: hsl(var(--github-error)); }
+.text-github-warning { color: hsl(var(--github-warning)); }
+.text-github-info { color: hsl(var(--github-info)); }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-github-bg text-github-text;
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--github-bg-secondary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--github-border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--github-text-secondary));
+}
+
+/* Code highlighting */
+code {
+  @apply font-mono text-sm;
+}
+
+/* Animation for status indicators */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
